@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>見目社会保険労務士事務所 | 人と組織を、未来へつなぐ</title>
+    <meta name="description" content="37年の企業経験を持つ特定社会保険労務士が、経営者と従業員双方の視点から職場をサポート。川崎市中原区の見目社会保険労務士事務所。">
+    
+    <!-- OGP設定 -->
+    <meta property="og:title" content="見目社会保険労務士事務所">
+    <meta property="og:description" content="人と組織を、未来へつなぐ">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kemmoku-sr.jp/">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* スタイルB: 温かみのあるカラーパレット */
+            --primary-color: #3d5a80;      /* 温かみのある深いブルー */
+            --secondary-color: #98c1d9;    /* 柔らかい水色 */
+            --accent-color: #ee6c4d;       /* 落ち着いたテラコッタ */
+            --neutral-light: #f8f4f0;      /* アイボリー */
+            --neutral-warm: #e0d5c7;       /* ベージュ */
+            --text-dark: #2d3142;
+            --text-light: #5f6672;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--neutral-light);
+            position: relative;
+        }
+
+        /* レイヤー構造のための背景装飾 */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -10%;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(152, 193, 217, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -10%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(61, 90, 128, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ヘッダー */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(248, 244, 240, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ハンバーガーメニュー */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ヒーローセクション - シンプルな固定画像 */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/profile_0.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(61, 90, 128, 0.85) 0%, 
+                rgba(152, 193, 217, 0.75) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 0 2rem;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            line-height: 1.4;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            opacity: 0.95;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            line-height: 2;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 108, 77, 0.4);
+            background: #d95d3f;
+        }
+
+        /* 共通セクションスタイル */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            margin-bottom: 4rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* About セクション */
+        .about {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(152, 193, 217, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(61, 90, 128, 0.15);
+        }
+
+        .about-text h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            line-height: 2;
+            color: var(--text-dark);
+        }
+
+        .profile-box {
+            background: var(--neutral-light);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .profile-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .profile-box ul {
+            list-style: none;
+        }
+
+        .profile-box li {
+            padding: 0.6rem 0;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .profile-box li strong {
+            color: var(--primary-color);
+            min-width: 100px;
+            display: inline-block;
+        }
+
+        /* Services セクション */
+        .services {
+            background: var(--neutral-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(238, 108, 77, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem 2.5rem 2.5rem;
+            border-radius: 8px;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.05),
+                0 10px 30px rgba(61, 90, 128, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            border-left: 4px solid transparent;
+            overflow: hidden;
+        }
+
+        /* レイヤー効果: カードの背景グラデーション */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(152, 193, 217, 0.03) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 4px 6px rgba(0, 0, 0, 0.05),
+                0 20px 50px rgba(61, 90, 128, 0.15);
+            border-left-color: var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--accent-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card ul {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Strengths セクション */
+        .strengths {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strengths::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -150px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(61, 90, 128, 0.04) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        .strengths-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .strength-item {
+            display: flex;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.03),
+                0 8px 24px rgba(61, 90, 128, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .strength-item:hover {
+            transform: translateX(5px);
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.04),
+                0 12px 32px rgba(61, 90, 128, 0.1);
+        }
+
+        .strength-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+            opacity: 0.9;
+        }
+
+        .strength-content h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .strength-content p {
+            color: var(--text-dark);
+            line-height: 1.9;
+        }
+
+        /* Philosophy セクション */
+        .philosophy {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .philosophy .section-title {
+            color: var(--white);
+        }
+
+        .philosophy .section-subtitle {
+            color: var(--neutral-warm);
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 2.2;
+        }
+
+        .philosophy-quote {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin: 3rem 0;
+            font-style: italic;
+            line-height: 2;
+            opacity: 0.95;
+        }
+
+        /* Profile セクション */
+        .profile {
+            background: var(--neutral-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(152, 193, 217, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .career-timeline {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .career-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: var(--secondary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid var(--neutral-light);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .hobbies {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.04),
+                0 10px 30px rgba(61, 90, 128, 0.08);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .hobbies h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .hobby-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .hobby-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .hobby-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .hobby-item p {
+            color: var(--text-dark);
+            line-height: 2;
+            font-size: 0.95rem;
+        }
+
+        /* Contact セクション */
+        .contact {
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            bottom: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(238, 108, 77, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+            min-width: 40px;
+            color: var(--accent-color);
+        }
+
+        .contact-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* コンタクトフォーム */
+        .contact-form {
+            background: var(--neutral-light);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.04),
+                0 10px 30px rgba(61, 90, 128, 0.08);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: var(--accent-color);
+            margin-left: 0.3rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--neutral-warm);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+        }
+
+        /* Googleマップ */
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        footer p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--neutral-light);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-grid,
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .services-grid,
+            .strengths-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <nav>
+            <a href="#" class="logo">見目社会保険労務士事務所</a>
+            <ul class="nav-links">
+                <li><a href="#about">事務所紹介</a></li>
+                <li><a href="#services">業務内容</a></li>
+                <li><a href="#strengths">強み</a></li>
+                <li><a href="#philosophy">理念</a></li>
+                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>人と組織を、未来へつなぐ</h1>
+            <p class="hero-subtitle">経営者と従業員、双方の視点から職場を支える</p>
+            <p class="hero-description">
+                37年の企業経験で培った実践的知識と、特定社会保険労務士としての専門性を活かし、<br>
+                就業規則の整備から労務トラブルの予防まで、企業の健全な成長をサポートします。
+            </p>
+            <a href="#contact" class="cta-button">お問い合わせはこちら</a>
+        </div>
+    </section>
+
+    <!-- 事務所紹介 -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">事務所紹介</h2>
+            <p class="section-subtitle">About Us</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/profile_0.png" alt="見目悦男 特定社会保険労務士">
+                </div>
+                <div class="about-text">
+                    <h3>見目 悦男（けんもく えつお）<br>特定社会保険労務士</h3>
+                    <p>
+                        ライオン株式会社で37年間の実務経験を積み、健康サポート室長として従業員の健康管理から人事労務まで幅広く携わってまいりました。その経験を活かし、2023年に独立開業いたしました。
+                    </p>
+                    <p>
+                        経営者の視点と従業員の視点、その両面から職場環境を見つめ、トラブルを未然に防ぐための備えをご提案します。就業規則や労務管理の整備だけでなく、一人ひとりの人生に寄り添うことを大切にしています。
+                    </p>
+                    <div class="profile-box">
+                        <h4><i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i>事務所情報</h4>
+                        <ul>
+                            <li><strong>所在地</strong> 〒211-0036 神奈川県川崎市中原区井田杉山町14-20</li>
+                            <li><strong>電話</strong> 090-8116-5081</li>
+                            <li><strong>メール</strong> sharoushi.office.kemmoku2021@gmail.com</li>
+                            <li><strong>Web</strong> https://kemmoku-sr.jp/</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 業務内容 -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">業務内容</h2>
+            <p class="section-subtitle">Services</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3>労務管理コンサルティング</h3>
+                    <ul>
+                        <li>就業規則・賃金規程・旅費規程等の作成・改訂</li>
+                        <li>出退勤管理、休職者対応等の労務相談</li>
+                        <li>キャリアアップ助成金・両立支援等助成金の相談</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>労働保険・社会保険事務代理</h3>
+                    <ul>
+                        <li>労働保険関係成立届、概算保険料申告書</li>
+                        <li>雇用保険適用事業所設置届、資格取得・喪失等</li>
+                        <li>健康保険・厚生年金の各種手続き</li>
+                        <li>労災保険の給付請求代行</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>事業許可申請サポート</h3>
+                    <ul>
+                        <li>労働者派遣事業の許可申請</li>
+                        <li>有料職業紹介事業の許可申請</li>
+                        <li>事業報告書の作成・提出代行</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 強み -->
+    <section id="strengths" class="strengths">
+        <div class="container">
+            <h2 class="section-title">私たちの強み</h2>
+            <p class="section-subtitle">Our Strengths</p>
+            <div class="strengths-grid">
+                <div class="strength-item">
+                    <div class="strength-number">01</div>
+                    <div class="strength-content">
+                        <h3>37年の企業実務経験</h3>
+                        <p>
+                            ライオン株式会社で営業から人事まで幅広い業務を経験。特に健康サポート室長として、従業員の健康管理や労務問題に向き合い、経営者と従業員双方の視点を養いました。この実践的な経験が、現場に即したアドバイスの源泉です。
+                        </p>
+                    </div>
+                </div>
+                <div class="strength-item">
+                    <div class="strength-number">02</div>
+                    <div class="strength-content">
+                        <h3>双方の視点でのサポート</h3>
+                        <p>
+                            経営者の悩みも、従業員の不安も、両方を理解できるからこそ、公平で納得感のある解決策をご提案できます。ルールを盾にした杓子定規な対応ではなく、一人ひとりに寄り添いながら、組織全体の調和を目指します。
+                        </p>
+                    </div>
+                </div>
+                <div class="strength-item">
+                    <div class="strength-number">03</div>
+                    <div class="strength-content">
+                        <h3>トラブルの未然防止</h3>
+                        <p>
+                            問題が起きてから対処するのではなく、事前の備えを重視。法令や社会情勢を踏まえた就業規則の整備と、日頃からの丁寧なコミュニケーションで、職場環境を健全に保ちます。万が一の事態にも、明確な規定があれば安心です。
+                        </p>
+                    </div>
+                </div>
+                <div class="strength-item">
+                    <div class="strength-number">04</div>
+                    <div class="strength-content">
+                        <h3>特定社会保険労務士の専門性</h3>
+                        <p>
+                            特定社会保険労務士の資格を持ち、労働紛争の代理業務も可能。複雑化する労働関連法令や助成金制度にも精通し、最新の情報をもとに的確なサポートを提供します。経営者様の頼れるパートナーとして、共に成長を目指します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理念 -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <h2 class="section-title">経営理念</h2>
+            <p class="section-subtitle">Philosophy</p>
+            <div class="philosophy-content">
+                <p>
+                    働く現場には、さまざまな人が集い、日々の業務を支えています。そこには当然、ひとりひとりの人生や事情があり、予期せぬ出来事がいつ起こるか分かりません。
+                </p>
+                <div class="philosophy-quote">
+                    ルールは人を守るためにあり、<br>
+                    人は組織を未来へつなぐために働く
+                </div>
+                <p>
+                    大切なのは、事前の備えです。法令や社会情勢を踏まえ、従業員の働き方や生活実態を理解したうえで、会社全員の約束事として社内ルールを整備しておく。これこそが、経営者と従業員が互いに信頼し合い、安心して事業に向き合えるための揺るぎない基盤となります。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- プロフィール -->
+    <section id="profile" class="profile">
+        <div class="container">
+            <h2 class="section-title">プロフィール</h2>
+            <p class="section-subtitle">Profile</p>
+            <div class="profile-grid">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 2rem; font-size: 1.4rem; font-weight: 600;">経歴</h3>
+                    <div class="career-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1985年</div>
+                            <div class="timeline-description">上智大学 法学部卒業<br>ライオン株式会社入社</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2019年</div>
+                            <div class="timeline-description">社会保険労務士試験に合格</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2021年</div>
+                            <div class="timeline-description">ライオン株式会社を定年退職<br>首里社会保険労務士法人に入所</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2022年</div>
+                            <div class="timeline-description">特定社会保険労務士を付記</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2023年</div>
+                            <div class="timeline-description">見目社会保険労務士事務所として独立</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="hobbies">
+                        <h3>趣味・パーソナル</h3>
+                        <div class="hobby-item">
+                            <h4><i class="fas fa-swimmer" style="margin-right: 0.5rem;"></i>スクーバダイビング</h4>
+                            <p>
+                                大学時代に始めたスクーバダイビング。海中に広がる光景は地上とはまるで異なる世界で、その魅力に引き込まれています。年に一度は必ず沖縄を訪れることを自分への約束として続けています。
+                            </p>
+                        </div>
+                        <div class="hobby-item">
+                            <h4><i class="fas fa-utensils" style="margin-right: 0.5rem;"></i>沖縄料理店めぐり</h4>
+                            <p>
+                                沖縄の文化の奥深さや人々の温かさに心から魅了されています。今では海だけでなく、沖縄料理や泡盛を楽しむことも大きな楽しみの一つです。いつか沖縄のために何らかの形で役に立てる人間になりたいと願っています。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <p class="section-subtitle">Contact</p>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>所在地</h3>
+                            <p>
+                                〒211-0036<br>
+                                神奈川県川崎市中原区井田杉山町14-20
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>電話番号</h3>
+                            <p><a href="tel:09081165081">090-8116-5081</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>メールアドレス</h3>
+                            <p><a href="mailto:sharoushi.office.kemmoku2021@gmail.com">sharoushi.office.kemmoku2021@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-globe"></i></div>
+                        <div>
+                            <h3>ウェブサイト</h3>
+                            <p><a href="https://kemmoku-sr.jp/" target="_blank">https://kemmoku-sr.jp/</a></p>
+                        </div>
+                    </div>
+                    <div class="map-container" style="margin-top: 2rem;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6490.791851372609!2d139.63802234924202!3d35.568618340495156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f5003b228b29%3A0x1697efbc7df1a7f4!2z6KaL55uu56S-5Lya5L-d6Zm65Yq05YuZ5aOr5LqL5YuZ5omA!5e0!3m2!1sja!2sjp!4v1760565886173!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>お問い合わせフォーム</h3>
+                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <div class="form-group">
+                            <label for="name">お名前<span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">会社名・団体名</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">メールアドレス<span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容<span class="required">*</span></label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">送信する</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 見目社会保険労務士事務所. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ハンバーガーメニュー
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // ナビゲーションリンククリック時にメニューを閉じる
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // フォーム送信後のメッセージ
+        const form = document.querySelector('form[name="contact"]');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                // Netlify Formsが処理するため、特別な処理は不要
+                // 送信後は自動的にサンキューページまたは同じページに戻る
+            });
+        }
+    </script>
+</body>
+</html>
