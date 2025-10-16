@@ -273,6 +273,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .section-title {
@@ -318,7 +320,7 @@
         .about {
             background: var(--white);
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .about::before {
@@ -344,6 +346,8 @@
 
         .about-image {
             text-align: center;
+            width: 100%;
+            max-width: 400px;
         }
 
         .about-image img {
@@ -351,6 +355,8 @@
             max-width: 400px;
             border-radius: 8px;
             box-shadow: 0 8px 24px rgba(61, 90, 128, 0.15);
+            display: block;
+            margin: 0 auto;
         }
 
         .about-text h3 {
@@ -959,13 +965,26 @@
             .about-content,
             .contact-grid,
             .profile-grid {
-                grid-template-columns: 1fr;
-                gap: 2.5rem;
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding: 0 !important;
             }
 
             .about-text {
-                max-width: 100%;
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .about-image {
                 width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-image img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
             }
 
             .office-name-header {
@@ -1002,6 +1021,9 @@
 
             .container {
                 padding: 0 1rem;
+                width: 100%;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .hero h1 {
@@ -1068,6 +1090,27 @@
             .about-image img {
                 max-width: 100%;
                 border-radius: 8px;
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                padding: 0 !important;
+                display: grid;
+            }
+
+            .about-text {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                box-sizing: border-box;
+            }
+
+            .about {
+                overflow-x: hidden;
             }
 
             section {
@@ -1132,6 +1175,8 @@
                 word-break: keep-all;
                 overflow-wrap: break-word;
                 padding: 0;
+                width: 100%;
+                max-width: 100%;
             }
 
             .about-text p {
@@ -1144,6 +1189,9 @@
                 max-width: 100%;
                 font-size: 1rem;
                 margin-bottom: 1.2rem;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
             }
 
             .philosophy-text {
@@ -1274,6 +1322,36 @@
                 overflow-wrap: break-word;
                 white-space: normal;
                 max-width: 100%;
+                width: 100%;
+                display: block;
+                box-sizing: border-box;
+            }
+
+            .about-content {
+                width: 100% !important;
+                padding: 0 !important;
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+
+            .about-text {
+                width: 100% !important;
+                padding: 0 !important;
+                box-sizing: border-box;
+            }
+
+            .about-image {
+                width: 100%;
+                padding: 0;
+            }
+
+            .about-image img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .container {
+                padding: 0 0.75rem;
             }
 
             .service-card,
