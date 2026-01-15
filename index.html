@@ -84,7 +84,11 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
         }
 
         nav {
@@ -1989,6 +1993,39 @@
                 }
             });
         });
+
+        // ヘッダーの表示/非表示（スクロール方向検出）
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const header = document.querySelector('header');
+        const scrollThreshold = 100;
+
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > scrollThreshold) {
+                if (currentScrollY > lastScrollY) {
+                    // スクロールダウン - ヘッダーを隠す
+                    header.classList.add('header-hidden');
+                } else {
+                    // スクロールアップ - ヘッダーを表示
+                    header.classList.remove('header-hidden');
+                }
+            } else {
+                // ページ上部ではヘッダーを常に表示
+                header.classList.remove('header-hidden');
+            }
+
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }, { passive: true });
 
         // スクロールアニメーション（Intersection Observer）
         const observerOptions = {
