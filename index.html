@@ -88,7 +88,7 @@
         }
 
         header.header-hidden {
-            transform: translateY(-100%);
+            transform: translateY(-100%) !important;
         }
 
         nav {
@@ -1995,37 +1995,30 @@
         });
 
         // ヘッダーの表示/非表示（スクロール方向検出）
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-        const header = document.querySelector('header');
-        const scrollThreshold = 100;
+        (function() {
+            let lastScrollY = 0;
+            const headerEl = document.querySelector('header');
+            const scrollThreshold = 50;
 
-        function updateHeader() {
-            const currentScrollY = window.scrollY;
+            window.addEventListener('scroll', function() {
+                const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (currentScrollY > scrollThreshold) {
-                if (currentScrollY > lastScrollY) {
-                    // スクロールダウン - ヘッダーを隠す
-                    header.classList.add('header-hidden');
+                if (currentScrollY > scrollThreshold) {
+                    if (currentScrollY > lastScrollY + 5) {
+                        // スクロールダウン - ヘッダーを隠す
+                        headerEl.classList.add('header-hidden');
+                    } else if (currentScrollY < lastScrollY - 5) {
+                        // スクロールアップ - ヘッダーを表示
+                        headerEl.classList.remove('header-hidden');
+                    }
                 } else {
-                    // スクロールアップ - ヘッダーを表示
-                    header.classList.remove('header-hidden');
+                    // ページ上部ではヘッダーを常に表示
+                    headerEl.classList.remove('header-hidden');
                 }
-            } else {
-                // ページ上部ではヘッダーを常に表示
-                header.classList.remove('header-hidden');
-            }
 
-            lastScrollY = currentScrollY;
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(updateHeader);
-                ticking = true;
-            }
-        }, { passive: true });
+                lastScrollY = currentScrollY;
+            });
+        })();
 
         // スクロールアニメーション（Intersection Observer）
         const observerOptions = {
