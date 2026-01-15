@@ -1450,6 +1450,224 @@
                 padding: 2.5rem 0;
             }
         }
+
+        /* ========================================
+           アニメーション効果
+           ======================================== */
+
+        /* ヒーロー背景のKen Burns効果 */
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            50% {
+                transform: scale(1.1) translate(-1%, -1%);
+            }
+            100% {
+                transform: scale(1) translate(0, 0);
+            }
+        }
+
+        .hero-background {
+            animation: kenBurns 20s ease-in-out infinite;
+        }
+
+        /* ヒーローコンテンツのフェードイン */
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: heroFadeIn 1.2s ease-out 0.3s both;
+        }
+
+        .hero h1 {
+            animation: heroFadeIn 1s ease-out 0.5s both;
+        }
+
+        .hero-subtitle {
+            animation: heroFadeIn 1s ease-out 0.7s both;
+        }
+
+        .hero-description {
+            animation: heroFadeIn 1s ease-out 0.9s both;
+        }
+
+        .cta-button {
+            animation: heroFadeIn 1s ease-out 1.1s both;
+        }
+
+        /* スクロールアニメーション用クラス */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* フェードインアニメーション（左から） */
+        .animate-fade-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-fade-left.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* フェードインアニメーション（右から） */
+        .animate-fade-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animate-fade-right.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* スケールアップアニメーション */
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-scale.animated {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* カードのスタッガードアニメーション */
+        .service-card:not(.animated),
+        .strength-card:not(.animated),
+        .profile-card:not(.animated) {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .service-card.animated,
+        .strength-card.animated,
+        .profile-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* スクロールアニメーション用のtransition追加 */
+        .strength-card,
+        .profile-card {
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease;
+        }
+
+        /* セクションタイトルのアニメーション */
+        .section-title {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .section-title.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-subtitle {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.6s ease-out 0.1s, transform 0.6s ease-out 0.1s;
+        }
+
+        .section-subtitle.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* strength-cardのホバーエフェクト強化 */
+        .strength-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(61, 90, 128, 0.2);
+        }
+
+        /* 画像のホバーエフェクト */
+        .about-image img,
+        .profile-image img {
+            transition: transform 0.5s ease-out;
+        }
+
+        .about-image:hover img,
+        .profile-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* コンタクト情報のアニメーション */
+        .contact-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .contact-item.animated {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ボタンのパルスエフェクト */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(238, 108, 77, 0.5);
+            }
+        }
+
+        .cta-button:not(:hover) {
+            animation: heroFadeIn 1s ease-out 1.1s both, pulse 3s ease-in-out 2s infinite;
+        }
+
+        /* prefers-reduced-motion対応 */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-background {
+                animation: none;
+            }
+            .hero-content,
+            .hero h1,
+            .hero-subtitle,
+            .hero-description,
+            .cta-button {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            .animate-on-scroll,
+            .animate-fade-left,
+            .animate-fade-right,
+            .animate-scale,
+            .service-card,
+            .strength-card,
+            .profile-card,
+            .section-title,
+            .section-subtitle,
+            .contact-item {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1774,6 +1992,72 @@
                 }
             });
         });
+
+        // スクロールアニメーション（Intersection Observer）
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
+
+        const animateOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(animateOnScroll, observerOptions);
+
+        // セクションタイトル
+        document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // カードのスタッガードアニメーション
+        document.querySelectorAll('.service-card, .strength-card, .profile-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index % 4 * 0.15}s`;
+            scrollObserver.observe(card);
+        });
+
+        // コンタクト情報
+        document.querySelectorAll('.contact-item').forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.1}s`;
+            scrollObserver.observe(item);
+        });
+
+        // About セクションの画像とテキスト
+        const aboutImage = document.querySelector('.about-image');
+        const aboutText = document.querySelector('.about-text');
+        if (aboutImage) {
+            aboutImage.classList.add('animate-fade-left');
+            scrollObserver.observe(aboutImage);
+        }
+        if (aboutText) {
+            aboutText.classList.add('animate-fade-right');
+            scrollObserver.observe(aboutText);
+        }
+
+        // 汎用のスクロールアニメーション対象
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            scrollObserver.observe(el);
+        });
+
+        // コンタクトフォーム
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.classList.add('animate-scale');
+            scrollObserver.observe(contactForm);
+        }
+
+        // プロフィールセクションの画像
+        const profileImage = document.querySelector('.profile-image');
+        if (profileImage) {
+            profileImage.classList.add('animate-fade-left');
+            scrollObserver.observe(profileImage);
+        }
 
     </script>
 </body>
